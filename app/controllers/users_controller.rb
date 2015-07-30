@@ -12,7 +12,7 @@ get '/users/:id' do
   # erb :likes
 end
 
-delete '/users	/:id' do
+delete '/users/:id' do
 	params[:id]
   # erb :likes
 end
@@ -22,6 +22,6 @@ post '/users/' do
 
   # Let's log the user in immediately
   # session[:user_id] = user.id
-"dogs"
-  # redirect "/notes"
+# "dogs"
+  erb :index
 end

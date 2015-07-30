@@ -1,0 +1,29 @@
+<div class="container">
+  <header class="row">
+    <h1>TodayBeLike</h1>
+  </header>
+  <nav class="row">
+    <div class="pull-right">
+      <a href="/login" class="btn btn-xs btn-success">LogIn</a>
+      <a href="/signup"class="btn btn-xs btn-danger">SignUp</a>
+      <a href="/profile/:user_id">UserName</a>
+    </div>
+  </nav>
+  <section class="row">
+    <div class="post panel panel-default">
+      <div class="post-title panel-heading"><h2>Title</h2></div>
+      <div class="post-detail panel-body"><p>Detail text</p></div>
+    </div>
+    <form action="" method="" class="form-horizontal">
+      <fieldset class="form-group">
+        <legend>Create a post</legend>
+        <label for="title" class="control-label">Title</label>
+        <input name="title" type="text" placeholder="Enter the title of your post" required class="form-control"/>
+        <label for="details" class="control-label">Details</label>
+        <textarea name="details" placeholder="Enter the details of your post" required class="form-control"></textarea>
+      </fieldset>
+    </form>
+  </section>
+  <footer class="row">
+  </footers>
+</div>

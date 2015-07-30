@@ -9,7 +9,6 @@ post '/session' do
      "invalid login"
      # redirect "/"
    end
-   "invalid login"
   end
   "invalid login"
 end
@@ -31,7 +30,9 @@ get '/discover' do
   unfollowed_users = all_accounts - followed_users
   @unfollowed_users_posts = []
   unfollowed_users.each do |user|
-    @unfollowed_users_posts << user.posts
+    if user.posts.length > 0
+      @unfollowed_users_posts << user.posts.order(:created_at).last
+    end
   end
   @unfollowed_users_posts.flatten!
   # @unfollowed_users_posts.first.content

@@ -1,26 +1,38 @@
 <div class="container">
   <header class="row">
-    <h1>TodayBeLike</h1>
-  </header>
-  <nav class="row">
-    <div class="pull-right">
+    <h1 class="pull-left">TodayBeLike</h1>
+    <nav class="pull-right">
       <a href="/login" class="btn btn-xs btn-success">LogIn</a>
       <a href="/signup"class="btn btn-xs btn-danger">SignUp</a>
       <a href="/profile/:user_id">UserName</a>
-    </div>
-  </nav>
+    </nav>
+  </header>
   <section class="row">
-    <div class="post panel panel-default">
-      <div class="post-title panel-heading"><h2>Title</h2></div>
-      <div class="post-detail panel-body"><p>Detail text</p></div>
+    <div class="panel panel-warning">
+      <div class="panel panel-heading"><p>Lani says &ldquo;Today be like...&rdquo;</p></div>
+      <div class="panel panel-body"><p>...sunny :-)</p></div>
     </div>
-    <form action="" method="" class="form-horizontal">
+    <div class="panel panel-danger">
+      <div class="panel panel-heading"><p>Denis says &ldquo;Today be like...&rdquo;</p></div>
+      <div class="panel panel-body"><p>...amazeballs</p></div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel panel-heading"><p>Del says &ldquo;Today be like...&rdquo;</p></div>
+      <div class="panel panel-body"><p>...first sun-shiny day</p></div>
+    </div>
+    <div class="panel panel-success">
+      <div class="panel panel-heading"><p>Gabriel says &ldquo;Today be like...&rdquo;</p></div>
+      <div class="panel panel-body"><p>...a new day with a new operating system</p></div>
+    </div>
+    <div class="panel panel-danger">
+      <div class="panel panel-heading"><p>Eugene says &ldquo;Today be like...&rdquo;</p></div>
+      <div class="panel panel-body"><p>...another day working in the back-end</p></div>
+    </div>
+    <form action="" method="" class="form-inline">
       <fieldset class="form-group">
         <legend>Create a post</legend>
-        <label for="title" class="control-label">Title</label>
-        <input name="title" type="text" placeholder="Enter the title of your post" required class="form-control"/>
-        <label for="details" class="control-label">Details</label>
-        <textarea name="details" placeholder="Enter the details of your post" required class="form-control"></textarea>
+        <label for="post" class="control-label">Post</label>
+        <textarea name="post" placeholder="Enter the details of your post" required class="form-control"></textarea>
       </fieldset>
     </form>
   </section>

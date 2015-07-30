@@ -1,22 +1,14 @@
   <section class="row">
-    <div class="panel-blue">
-      <div class="panel-heading"><p>Lani says &ldquo;Today be like...&rdquo;</p></div>
-      <div class="panel-body"><p>...sunny :-)</p></div>
-    </div>
-    <div class="panel-yellow">
-      <div class="panel-heading"><p>Denis says &ldquo;Today be like...&rdquo;</p></div>
-      <div class="panel-body"><p>...amazeballs</p></div>
-    </div>
-    <div class="panel-red">
-      <div class="panel-heading"><p>Del says &ldquo;Today be like...&rdquo;</p></div>
-      <div class="panel-body"><p>...first sun-shiny day</p></div>
-    </div>
-    <div class="panel-green">
-      <div class="panel-heading"><p>Gabriel says &ldquo;Today be like...&rdquo;</p></div>
-      <div class="panel-body"><p>...a new day with a new operating system</p></div>
-    </div>
-    <div class="panel-purple">
-      <div class="panel-heading"><p>Eugene says &ldquo;Today be like...&rdquo;</p></div>
-      <div class="panel-body"><p>...another day working in the back-end</p></div>
-    </div>
+    <% @posts.each do |post|
+      panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+      %>
+      <div class="<%= panel_colours %>">
+        <div class="panel-heading">
+          <p><%= post.user.username %> says &ldquo;Today be like...&rdquo;</p>
+        </div>
+        <div class="panel-body">
+          <p><%= post.content %></p>
+        </div>
+      </div>
+    <% end %>
   </section>

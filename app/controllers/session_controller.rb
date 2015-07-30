@@ -3,8 +3,8 @@ post '/session' do
  if user
    if user.password == params[:user][:password]
      session[:user_id] = user.id
-     redirect '/discover'
-     
+     # redirect '/discover'
+     redirect '/today'
    else
      "invalid login"
      # redirect "/"
@@ -22,3 +22,12 @@ end
 get '/session' do
   redirect '/discover'
 end
+
+
+get '/today' do
+  erb :today
+end
+
+
+
+

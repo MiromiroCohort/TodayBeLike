@@ -1,0 +1,56 @@
+<table width = 700>
+  <thead>
+    <th width = 6%>ID</th>
+    <th width = 18%>Title</th>
+    <th width = 46%>Content</th>
+    <th width = 15%>Edit</th>
+    <th width = 15%>Delete</th>
+  </thead>
+  <% @posts.each do |item| %>
+    <tr>
+      <td> <a href="/posts/<%=item.id%>"><%= item.id %></a></td>
+      <td> <%= item.title %></td>
+      <td> <%= item.content %></td>
+      <td> 
+
+
+
+
+      <td> <a href="/posts/<%=item.id%>/edit"> <button type="button" class="btn btn-warning">Edit</button></a> 
+
+
+      <td>
+      <form method="post">
+        <input type="hidden" name="id" value=<%= item.id %>>
+        <input name="_method" type="hidden" value="delete" />
+        <input type="submit" class="btn btn-danger" value="DEL">
+        </form>
+      </td>
+    </tr>
+  <tr><td colspan=5>&nbsp;</td></tr>
+  <% end %>
+</table>
+
+
+<table>
+  <tr>
+    <td colspan="4">
+      Create new Post
+    </td>
+  </tr>
+  <tr>
+      <td>
+        <form method="post">
+          <textarea name="title">Title goes here</textarea><br />
+      </td>
+      <td colspan="2">
+          <textarea name="content">Content goes here</textarea><br />
+      </td>
+      <td>
+        <input type="submit" class="btn btn-info" value="Create">
+      </td>
+      </form>
+  </tr>
+</table>
+
+

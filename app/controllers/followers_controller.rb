@@ -22,3 +22,4 @@ delete '/users/:id' do
       leader.save
     end
 end
+

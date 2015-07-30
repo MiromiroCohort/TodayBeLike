@@ -3,8 +3,8 @@ post '/session' do
  if user
    if user.password == params[:user][:password]
      session[:user_id] = user.id
-     redirect '/discover'
-     
+     # redirect '/discover'
+     redirect '/today'
    else
      "invalid login"
      # redirect "/"
@@ -24,7 +24,14 @@ get '/session' do
   redirect '/discover'
 end
 
-get '/discover' do 
+
+get '/today' do
+  erb :today
+end
+
+
+
+get '/discover' do
   user = session[:user_id]
   followed_users = User.find(user).followed_id
   all_accounts = User.all

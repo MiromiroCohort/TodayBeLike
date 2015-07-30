@@ -1,21 +1,20 @@
-# NON-GET routes redirect to GET routes
-
-# CREATE
 post '/session' do
-  user = User.find_by_username(params[:user][:username])
+ user = User.find_by_username(params[:user][:username])
+ if user
+   if user.password == params[:user][:password]
+     session[:user_id] = user.id
+     redirect '/discover'
 
-  if user.password == params[:user][:password]
-    session[:user_id] = user.id
-    # erb :discover
-    erb :today
-  else
-    "its not working"
-    # redirect "/"
+   else
+     "invalid login"
+     # redirect "/"
+   end
+   "invalid login"
   end
-
+  "invalid login"
 end
 
-# DESTROY
+>>>>>>> 3e9d089b3b175e7646478e602b504cea530a6605
 delete '/session' do
   session[:user_id] = nil
 

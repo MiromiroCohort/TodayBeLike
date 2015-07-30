@@ -1,0 +1,20 @@
+
+<table>
+	<tr>
+		<td>
+			<form method="post"><%= @this_post.id %>
+			    <input name="_method" type="hidden" value="patch" />
+			 </td>
+			 <td>
+				<textarea name="title"><%=@this_post.title%></textarea><br />
+			</td>
+			<td>
+				<textarea name="content"><%=@this_post.content %></textarea><br />
+			<td>
+			    <input type="submit" class="btn btn-danger" value="Confirm Edit">
+			</form>
+		</td>
+	</tr>
+</table>
+
+

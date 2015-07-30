@@ -6,6 +6,7 @@
     <th width = 15%>Edit</th>
     <th width = 15%>Delete</th>
   </thead>
+  <% p @posts %>
   <% @posts.each do |item| %>
     <tr>
       <td> <a href="/posts/<%=item.id%>"><%= item.id %></a></td>

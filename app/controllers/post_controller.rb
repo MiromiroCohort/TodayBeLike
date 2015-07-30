@@ -9,8 +9,24 @@ end
 
 
 get '/posts' do
-  @posts = []
-  @posts = Post.all
+
+@posts = []
+my_last_post = Post.where(:user_id => session[:user_id])[-1]
+
+#session[:user_id]
+followed_users = User.find(8).followed_id
+temp_array = []
+if followed_users[0] == nil
+  #do nothing
+else
+  followed_users.each do |item|
+    temp_array << Post.where(:user_id => session[:user_id])[-1]
+  end
+end
+
+  @posts = temp_array
+  if @posts[-1] == nil then @posts.pop end
+  @posts.unshift(my_last_post)
   erb :posts
 end
 

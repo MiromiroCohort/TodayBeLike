@@ -1,3 +1,4 @@
+# NON-GET routes redirect to GET routes
 
 # CREATE
 post '/session' do
@@ -6,6 +7,7 @@ post '/session' do
   if user.password == params[:user][:password]
     session[:user_id] = user.id
     # erb :discover
+    erb :today
   else
     "its not working"
     # redirect "/"
@@ -13,3 +15,13 @@ post '/session' do
 
 end
 
+# DESTROY
+delete '/session' do
+  session[:user_id] = nil
+
+  redirect '/'
+end
+
+get '/session' do
+  erb :discover
+end

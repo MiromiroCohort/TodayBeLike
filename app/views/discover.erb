@@ -1,0 +1,14 @@
+  <section class="row">
+    <% @posts.each do |post|
+      panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+      %>
+      <div class="<%= panel_colours %>">
+        <div class="panel-heading">
+          <p><%= post.user.username %> says &ldquo;Today be like...&rdquo;</p>
+        </div>
+        <div class="panel-body">
+          <p><%= post.content %></p>
+        </div>
+      </div>
+    <% end %>
+  </section>

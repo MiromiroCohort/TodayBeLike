@@ -1,27 +1,15 @@
 <div class="container">
-
- <!--  <section class="row">
-
-
-
-  </section> -->
-
-    <section class="row">
-    <% @posts.each do |post|
-      panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
-      %>
-      <div class="<%= panel_colours %>">
-        <div class="panel-heading">
-          <p><%= post.user.username %> says &ldquo;Today be like...&rdquo;</p>
-        </div>
-        <div class="panel-body">
-          <p><%= post.content %></p>
-        </div>
+    <div class="row">
+      <div class="col-lg-12">
+          <div class="status-upload col-sm-offset-3 col-lg-6">
+            <form>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="What is your day like today?" aria-describedby="basic-addon2" rows ="3">
+                <span class="input-group-addon" id="basic-addon2">Share</span>
+              </div>
+            </form>
+          </div><!-- Status Upload  -->
       </div>
-    <% end %>
-  </section>
-
-
-
-
+    </div>
 </div>
+

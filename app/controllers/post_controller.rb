@@ -1,6 +1,6 @@
 get '/' do
   # Look in app/views/index.erb
-  redirect '/posts' 
+  redirect '/posts'
 end
 
 get '/posts' do
@@ -33,7 +33,7 @@ end
 
 
 post '/posts' do
-	@this_post= Post.create(:title => params[:title], 
+	@this_post= Post.create(:title => params[:title],
     :content => params[:content])
   redirect '/posts'
 end

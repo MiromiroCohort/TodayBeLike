@@ -2,13 +2,23 @@
     <div class="row">
       <div class="col-lg-12">
           <div class="status-upload col-sm-offset-3 col-lg-6">
-            <form>
+
+            <form method="post" action="/posts">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="What is your day like today?" aria-describedby="basic-addon2" rows ="3">
-               <span class="input-group-addon" id="basic-addon2">Share</span>
+                <input type="text" class="form-control" name="content" placeholder="What is your day like today?" aria-describedby="basic-addon2" value="">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit">Share</button>
+                </span>
               </div>
             </form>
+
           </div><!-- Status Upload  -->
        </div>
     </div>
+
+
+
+
+
 </div>
+

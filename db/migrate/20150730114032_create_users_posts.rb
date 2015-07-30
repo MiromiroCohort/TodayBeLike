@@ -3,7 +3,7 @@ class CreateUsersPosts < ActiveRecord::Migration
     create_table :users do |t|
       t.string :email
       t.string :digest
-      timestamps null: false
+      t.timestamps null: false
     end
     create_table :followers do |t|
       t.integer :user_id
@@ -16,11 +16,11 @@ class CreateUsersPosts < ActiveRecord::Migration
       t.string :title
       t.string :content
       t.belongs_to :user, index: true
-      timestamps null: false
+      t.timestamps null: false
     end
     create_table :likes do |t|
-      belongs_to :user
-      belongs_to :post
+      t.belongs_to :user
+      t.belongs_to :post
     end
 
   end

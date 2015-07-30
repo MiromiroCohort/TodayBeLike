@@ -1,5 +1,5 @@
-get '/users/:id/follows'
-@followed_id=params[:id]
-@
+# get '/users/:id/follows'
+# @followed_id=params[:id]
+# @
 
-end
+# end

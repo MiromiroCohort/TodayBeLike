@@ -1,13 +1,13 @@
   <section class="row">
-    <% @posts.each do |post|
+    <% User.find_by(@leader_id).followed_id do |follower|
       panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
       %>
       <div class="<%= panel_colours %>">
         <div class="panel-heading">
-          <p><%= post.user.username %> says &ldquo;Today be like...&rdquo;</p>
+          <p><%= follower.username %> says &ldquo;Today be like...&rdquo;</p>
         </div>
         <div class="panel-body">
-          <p><%= post.content %></p>
+          <p><%= follower.posts.last.content %></p>
         </div>
       </div>
     <% end %>

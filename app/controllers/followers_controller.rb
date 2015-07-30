@@ -1,5 +1,5 @@
-get '/users/:id/follows'
-@followed_id=params[:id]
-@
-
+get '/users/:id/follows/' do
+@leader_id=params[:id]
+  erb :follows
 end
+

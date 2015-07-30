@@ -23,3 +23,9 @@ delete '/users/:id' do
     end
 end
 
+get '/users/:id/followed_by/' do
+@leader_id= session[:user_id]
+  erb :follows
+
+end
+

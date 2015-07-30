@@ -6,7 +6,7 @@ post '/session' do
 
   if user.password == params[:user][:password]
     session[:user_id] = user.id
-    "it is working"
+    erb :today
   else
     "its not working"
     # redirect "/"

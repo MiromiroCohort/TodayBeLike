@@ -13,17 +13,18 @@
       <td> <%= item.content %></td>
       <td> 
 
-
-
-
-      <td> <a href="/posts/<%=item.id%>/edit"> <button type="button" class="btn btn-warning">Edit</button></a> 
+      <p><%=  session[:user_id] %></p>
+      <p><%= item.user_id %>
+        <td> <a href="/posts/<%=item.id%>/edit"> <button type="button" class="btn btn-warning">Edit</button></a> 
+        </td>
 
 
       <td>
-      <form method="post">
-        <input type="hidden" name="id" value=<%= item.id %>>
-        <input name="_method" type="hidden" value="delete" />
-        <input type="submit" class="btn btn-danger" value="DEL">
+
+        <form method="post">
+          <input type="hidden" name="id" value=<%= item.id %>>
+          <input name="_method" type="hidden" value="delete" />
+          <input type="submit" class="btn btn-danger" value="DEL">
         </form>
       </td>
     </tr>

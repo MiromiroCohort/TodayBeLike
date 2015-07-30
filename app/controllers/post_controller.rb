@@ -39,9 +39,12 @@ end
 
 
 post '/posts' do
+  temp_string = params[:content]
+    if temp_string == "" then temp_string = "Nothing to say about Today" end
+    if temp_string.length > 150 then temp_string = temp_string[0..150] end  
   @this_post= Post.create(:title => params[:title], 
-    :content => params[:content],
-    :user_id => session[:session_id])
+    :content => temp_string,
+    :user_id => session[:user_id])
   redirect '/posts'
 end
 

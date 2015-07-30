@@ -1,5 +1,6 @@
+<div class="container">
   <section class="row">
-    <% @posts.each do |post|
+    <% @posteach do |post|
       panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
       %>
       <div class="<%= panel_colours %>">
@@ -12,3 +13,4 @@
       </div>
     <% end %>
   </section>
+</div>

@@ -1,3 +1,19 @@
+post '/session' do
+ user = User.find_by_username(params[:user][:username])
+ if user
+   if user.password == params[:user][:password]
+     session[:user_id] = user.id
+     redirect '/discover'
+     
+   else
+     "invalid login"
+     # redirect "/"
+   end
+   "invalid login"
+  end
+  "invalid login"
+end
+
 delete '/session' do
   session[:user_id] = nil
 

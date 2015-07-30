@@ -5,3 +5,4 @@ class Like < ActiveRecord::Base
   validates :user_id, uniqueness: {scope: :post_id}
   # validates :user_id, presence: true 
 end
+ 

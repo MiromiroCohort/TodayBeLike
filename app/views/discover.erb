@@ -1,5 +1,5 @@
   <section class="row">
-    <% @posts.each do |post|
+    <% Post.all.sample(5).each do |post|
       panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
       %>
       <div class="<%= panel_colours %>">

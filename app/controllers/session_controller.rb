@@ -6,7 +6,7 @@ post '/session' do
 
   if user.password == params[:user][:password]
     session[:user_id] = user.id
-    erb :today
+    erb :discover
   else
     "its not working"
     # redirect "/"
@@ -19,4 +19,8 @@ delete '/session' do
   session[:user_id] = nil
 
   redirect '/'
+end
+
+get '/session' do
+  erb :discover
 end

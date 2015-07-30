@@ -22,7 +22,7 @@ post '/users/' do
   user = User.new params[:user]
   if user.valid?
     user.save
-    session[:user_id]
+    session[:user_id] = user_id
     erb :discover
   else
     erb :user_creation_error

@@ -18,10 +18,20 @@ delete '/users/:id' do
 end
 
 post '/users/' do
-  user = User.create params[:user]
 
-  # Let's log the user in immediately
-  # session[:user_id] = user.id
-# "dogs"
+  user = User.new params[:user]
+  if user.valid?
+    user.save
+    session[:user_id]
+    erb :discover
+  else
+    erb :user_creation_error
+
+  end
+end
+
+delete '/users/' do
+  user_id = session[:user_id]
+  User.find(user_id).destroy
   erb :index
 end

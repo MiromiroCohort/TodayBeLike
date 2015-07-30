@@ -1,5 +1,7 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
   has_and_belongs_to_many :followed_id,
               class_name: "User",
               join_table: :followers,

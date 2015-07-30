@@ -1,18 +1,24 @@
-get '/' do
-  # Look in app/views/index.erb
-  redirect '/posts'
+class Posts < ActiveRecord::Base
+  # Remember to create a migration!
 end
 
+#prevent user progress if not logged in
+before '/post*' do
+  redirect '/' unless session[:user_id]
+end
+
+
 get '/posts' do
-	@posts = []
+  @posts = []
   @posts = Post.all
   erb :posts
 end
 
 get '/posts/:id' do
-	 @this_post = Post.find_by(:id => params[:id])
+   @this_post = Post.find_by(:id => params[:id])
    erb :post_show
 end
+
 
 
 
@@ -33,8 +39,12 @@ end
 
 
 post '/posts' do
-	@this_post= Post.create(:title => params[:title],
-    :content => params[:content])
+  temp_string = params[:content]
+    if temp_string == "" then temp_string = "Nothing to say about Today" end
+    if temp_string.length > 150 then temp_string = temp_string[0..150] end
+  @this_post= Post.create(:title => params[:title],
+    :content => temp_string,
+    :user_id => session[:user_id])
   redirect '/posts'
 end
 

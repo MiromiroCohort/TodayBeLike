@@ -12,7 +12,7 @@ get '/likes/:id' do
 	erb :posts
 end
 
-post '/likes/:id' do
+put '/likes/:id' do
 	@post_id = params[:id]
 	@user_id = session[:user_id]
 	new_like = Like.new(user_id: @user_id, post_id: @post_id)

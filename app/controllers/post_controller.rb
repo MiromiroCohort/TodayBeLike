@@ -9,10 +9,10 @@ end
 
 
 get '/posts' do
- 
+
   @posts = []
-  @posts = Post.all
-  
+  @posts = Post.where(:user_id => session[:user_id])
+
 
  erb :posts
 end
@@ -49,8 +49,8 @@ end
 post '/posts' do
   temp_string = params[:content]
     if temp_string == "" then temp_string = "Nothing to say about Today" end
-    if temp_string.length > 150 then temp_string = temp_string[0..150] end  
-  @this_post= Post.create(:title => params[:title], 
+    if temp_string.length > 150 then temp_string = temp_string[0..150] end
+  @this_post= Post.create(:title => params[:title],
     :content => temp_string,
     :user_id => session[:user_id])
   redirect '/posts'

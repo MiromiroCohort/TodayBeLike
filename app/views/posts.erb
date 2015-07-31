@@ -1,13 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
       <p>First posted</p>
     </div>
-    <div class="col-md-1">
-      <p>Last modified</p>
-    </div>
     <div class="col-md-2">
-      <p>Title</p>
+      <p>Poster</p>
     </div>
     <div class="col-md-6">
       <p>Content</p>
@@ -21,17 +18,16 @@
   <% if item %>
     <div class="row">
 
-      <div class="col-md-1">
+      <div class="col-md-2">
         <p><%= item.created_at.to_date %></p>
       </div>
-      <div class="col-md-1">
-        <p><%= item.updated_at.to_date %></p>
+      <div class="col-md-2 gravatar">
+        <img src="<%= Faker::Avatar.image %>" />
       </div>
-      <div class="col-md-2">
-        <a href="/posts/<%= item.id %>"><%= item.title %></a>
-      </div>
-      <div class="col-md-6">
-        <p><%= item.content %></p>
+      <div class="col-md-6 move-down">
+        <div class="bubble joiner">
+          <p>Today be like... <%= item.content %></p>
+        </div>
       </div>
       <div class="col-md-2">
         <a href="/posts/<%= item.id %>/edit" style="float: left;">

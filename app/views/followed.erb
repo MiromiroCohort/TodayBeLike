@@ -1,13 +1,17 @@
-
+<div class="container">
   <section class="row">
-     <% User.find_by_id(@leader_id).followed_id.each do |follower|
-      panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+      <% User.find_by_id(@leader_id).followed_id.each do |follower|
+      require 'faker'
       %>
-      <div class="<%= panel_colours %>">
-        <div class="panel-heading">
-          <% p follower %>
-          <p><%= follower.username %> says &ldquo;Today be like...&rdquo;</p>
+      <div class="row">
+        <div class="col-md-2">&nbsp;</div>
+        <div class="col-md-1 gravatar">
+          <img src="<%= Faker::Avatar.image %>" />
+          <p> <%= follower.username %></p>
         </div>
-
+        <div class="col-md-2">&nbsp;</div>
+      </div>
     <% end %>
   </section>
+</div>
+

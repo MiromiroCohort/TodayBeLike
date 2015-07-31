@@ -7,10 +7,11 @@
         <div class="col-md-2">&nbsp;</div>
         <div class="col-md-1">
           <img src="<%= Faker::Avatar.image %>" class="gravatar" />
-          <form action="/users/<%= post.user_id %>/">
-            <input type="hidden" name="_method" value="patch" />
+            <form action="/users/<%= post.user_id %>" method= "post">
+            <input type="hidden" name="_method" value="put" />
             <input type="submit" value="Follow">
           </form>
+
         </div>
         <div class="col-md-7 move-down">
           <div class="bubble joiner">

@@ -55,6 +55,7 @@
   padding: 10px 20px;
   position: relative;
   vertical-align: top;
+  width: 75%;
 }
 
 .bubble::before {
@@ -81,4 +82,12 @@
   box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
   left: -9px;
 }
-.gravatar { float: left; }
+
+.gravatar {
+  height: 80px;
+  width: 80px;
+}
+
+.move-down {
+  padding-top: 20px;
+}

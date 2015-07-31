@@ -46,6 +46,13 @@
   border-color: #8E44AD;
 }
 
+.blue {
+  background-color: #1E8BC3;
+}
+.yellow {
+  background-color: #F39C12;
+}
+
 /*speech bubbles*/
 .bubble {
   background-color: #F2F2F2;
@@ -90,4 +97,13 @@
 
 .move-down {
   padding-top: 20px;
+}
+
+.profile img {
+  width: 160px;
+  height: 160px;
+}
+.profile a {
+  text-decoration: none;
+  color: #fff;
 }

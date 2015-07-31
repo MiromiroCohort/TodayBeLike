@@ -1,40 +1,44 @@
-<% panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample %>
-<%
-
- %>
-<section class="row">
-  <div class="panel-yellow">
-    <div class="panel-heading">
-    <img src="<%=@user_img_url%>">
-			<p><%= @user_profile.username %></p>
-			<p><%= @user_profile.email %></p>
-    </div>
-    <div class="panel-body">
-      <% @user_profile.posts.each do |post| %>
-				<p><%= post.content %></p>
-			<% end %>
-    </div>
+<div class="profile">
+<div class="row yellow">
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-4">
+    <img src="<%= @user_img_url %>" />
+		<h2><%= @user_profile.username %></h2>
+    <h4><%= @user_profile.email %></h4>
   </div>
-</section>
-
-<h3> Following </h3>
-
-<% if @user_profile.user_id.length > 0 %>
-	<% @user_profile.user_id.each do |following| %>
-	<section class="row">
-	  <div class="<%= panel_colours %>">
-	    <div class="panel-heading">
-				<p><%=following.username%></p>
-	    </div>
-	    
-	    <div class="panel-body">
-	    	<% if following.posts.length > 0 %>
-					<p><%=following.posts.last.content%></p>
-				<% end%>
-			</div>
-	  </div>
-	</section>
-	<% end %>
+  <div class="col-md-6">
+    <h2>Recent posts</h2>
+    <ul>
+      <% @user_profile.posts.each do |post| %>
+        <li><%= post.content %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row blue">
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-10">
+    <h2> Following </h2>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row blue">
+  <div class="col-md-1">&nbsp;</div>
+  <% if @user_profile.user_id.length > 0 %>
+    <% @user_profile.user_id.each do |following| %>
+      <div class="col-md-2">
+	  	  <h3><a href="/profile/<%= following.id %>"><%= following.username %></a></h3>
+        <% if following.posts.length > 0 %>
+				  <p><%=following.posts.last.content%></p>
+			  <% end%>
+		  </div>
+	  <% end %>
 	<%else%>
-	<h3>Not following anyone. Head to Discover to Discover to find interesting Days.</h3>
-<% end %>
+    <div class="col-md-10">
+    	<p>Not following anyone. Head to Discover to Discover to find interesting Days.</p>
+    </div>
+  <% end %>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+</div>

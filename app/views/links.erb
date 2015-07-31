@@ -9,7 +9,7 @@
   <% if @user %>
     <li class="active"><span class="page">Profile</span></li>
   <% else %>
-    <li><a href="/profile">Profile</a></li>
+    <li><a href="/profile/<%=session[:user_id]%>">Profile</a></li>
   <% end %>
 
   <% if @posts %>

@@ -23,6 +23,7 @@ delete '/users/:id' do
     if user_id && leader_id
       leader.followed_id.delete(User.find(user_id))
       leader.save
+      @follower_id= session[:user_id]
       erb :follows
     end
 end

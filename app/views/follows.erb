@@ -8,6 +8,13 @@
 
           <p><%= leader.username %> says &ldquo;Today be like...&rdquo;</p>
         </div>
-
-    <% end %>
+        <% if @follower_id == session[:user_id] %>
+         <div>
+           <form action="/users/<%= leader.id %>" method= "post">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="Unfollow">
+          </form>
+         </div>
+        <% end %>
+     <% end %>
   </section>

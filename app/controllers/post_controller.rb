@@ -10,19 +10,18 @@ end
 
 get '/posts' do
 
+
+
 @posts = []
 my_last_post = Post.where(:user_id => session[:user_id])[-1]
 
 #session[:user_id]
-followed_users = User.find(8).followed_id
-temp_array = []
-if followed_users[0] == nil
-  #do nothing
-else
-  followed_users.each do |item|
-    temp_array << Post.where(:user_id => session[:user_id])[-1]
-  end
-end
+current_user = User.find_by(:id=> session[:user_id])
+i_am_following = current_user.user_id
+return "i_am_following"
+# followed_users.each do |item|
+#   temp_array << Post.where(:user_id => item.id)[-1]
+# end
 
   @posts = temp_array
   if @posts[-1] == nil then @posts.pop end

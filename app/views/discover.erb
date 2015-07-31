@@ -1,14 +1,27 @@
+<div class="container">
   <section class="row">
     <% @unfollowed_users_posts.sample(5).each do |post|
       panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+      require 'faker'
       %>
-      <div class="<%= panel_colours %>">
+<!--       <div class="<%= panel_colours %>">
         <div class="panel-heading">
           <p><%= post.user.username %> says &ldquo;Today be like...&rdquo;</p>
         </div>
         <div class="panel-body">
           <p><%= post.content %></p>
         </div>
+      </div> -->
+      <div class="post">
+        <div class="gravatar">
+          <img src="<%= Faker::Avatar.image %>" />
+        </div>
+        <div class="move_down">
+          <div class="bubble joiner">
+            <p>Today be like... <%= post.content %></p>
+          </div>
+        </div>
       </div>
     <% end %>
   </section>
+</div>

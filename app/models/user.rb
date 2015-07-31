@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
               join_table: :followers,
               foreign_key: :user_id,
               association_foreign_key: :followed_id
+  has_and_belongs_to_many :user_id,
+              class_name: "User",
+              join_table: :followers,
+              foreign_key: :followed_id,
+              association_foreign_key: :user_id
   # Remember to create a migration!
   has_many :posts
   include BCrypt

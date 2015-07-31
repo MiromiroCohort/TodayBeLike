@@ -1,57 +1,33 @@
-<table width = 700>
-  <thead>
-    <th width = 6%>ID</th>
-    <th width = 18%>Title</th>
-    <th width = 46%>Content</th>
-    <th width = 15%>Edit</th>
-    <th width = 15%>Delete</th>
-  </thead>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <p>Title</p>
+    </div>
+    <div class="col-md-6">
+      <p>Content</p>
+    </div>
+    <div class="col-md-4">
+      <p>Actions</p>
+    </div>
+  </div>
   <% @posts.each do |item| %>
-    <tr>
-      <td> <a href="/posts/<%=item.id%>"><%= item.id %></a></td>
-      <td> <%= item.title %></td>
-      <td> <%= item.content %></td>
-      <td>
-
-      <p><%=  session[:user_id] %></p>
-      <p><%= item.user_id %>
-        <td> <a href="/posts/<%=item.id%>/edit"> <button type="button" class="btn btn-warning">Edit</button></a>
-        </td>
-
-
-      <td>
-
-        <form method="post">
-          <input type="hidden" name="id" value=<%= item.id %>>
+    <div class="row">
+      <div class="col-md-2">
+        <a href="/posts/<%= item.id %>"><%= item.title %></a>
+      </div>
+      <div class="col-md-6">
+        <p><%= item.content %></p>
+      </div>
+      <div class="col-md-4">
+        <a href="/posts/<%= item.id %>/edit" style="float: left;">
+          <button type="button" class="btn btn-warning">Edit</button>
+        </a><p style="float: left;">&nbsp;</p>
+        <form method="post" style="float: left;">
+          <input type="hidden" name="id" value="<%= item.id %>" />
           <input name="_method" type="hidden" value="delete" />
           <input type="submit" class="btn btn-danger" value="DEL">
         </form>
-      </td>
-    </tr>
-  <tr><td colspan=5>&nbsp;</td></tr>
+      </div>
+    </div><br />
   <% end %>
-</table>
-
-
-<table>
-  <tr>
-    <td colspan="4">
-      Create new Post
-    </td>
-  </tr>
-  <tr>
-      <td>
-        <form method="post">
-          <textarea name="title">Title goes here</textarea><br />
-      </td>
-      <td colspan="2">
-          <textarea name="content">Content goes here</textarea><br />
-      </td>
-      <td>
-        <input type="submit" class="btn btn-info" value="Create">
-      </td>
-      </form>
-  </tr>
-</table>
-
-
+</div>

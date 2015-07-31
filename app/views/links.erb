@@ -18,5 +18,16 @@
     <li><a href="/posts">My Posts</a></li>
   <% end %>
 
+  <% if @posts %>
+    <li class="active"><span class="page">I follow</span></li>
+  <% else %>
+    <li><a href="/users/<%= session[:user_id] %>/follows/">I follow</a></li>
+  <% end %>
+  <% if @posts %>
+    <li class="active"><span class="page">I followed by</span></li>
+  <% else %>
+    <li><a href="/users/<%= session[:user_id] %>/followed_by/">I follow</a></li>
+  <% end %>
+
 
 </ul>

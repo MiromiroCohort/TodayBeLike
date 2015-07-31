@@ -5,18 +5,29 @@
 
 <div class="container">
   <section class="row">
-   <div class="panel-yellow col-lg-12">
-     <div class="panel-heading">
-     <img src="<%=@user_img_url%>">
-              <p><%= @user_profile.username %></p>
-              <p><%= @user_profile.email %></p>
-     </div>
-     <div class="panel-body">
-       <% @user_profile.posts.each do |post| %>
-                  <p><%= post.content %></p>
-              <% end %>
-     </div>
-   </div>
+    <div class="panel-yellow col-lg-12">
+        <div class="panel-heading">
+          <!-- <div class="col-lg-6 pull-left"> -->
+            <img src="<%=@user_img_url%>">
+            <p><%= @user_profile.username %></p>
+            <p><%= @user_profile.email %></p>
+          <!-- <div> -->
+        </div>
+
+    </div>
+  </section>
+
+
+  <section class="row">
+    <div class="panel-yellow col-lg-12">
+      <div class="panel-body">
+        <div class="status-upload col-sm-offset-3 col-lg-6">
+          <% @user_profile.posts.each do |post| %>
+            <p><%= post.content %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </section>
 
         <h3> Following </h3>
@@ -34,5 +45,6 @@
          </div>
         </section>
         <% end %>
+
 
 </end>

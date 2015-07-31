@@ -1,0 +1,13 @@
+
+  <section class="row">
+     <% User.find_by_id(@leader_id).followed_id.each do |follower|
+      panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+      %>
+      <div class="<%= panel_colours %>">
+        <div class="panel-heading">
+          <% p follower %>
+          <p><%= follower.username %> says &ldquo;Today be like...&rdquo;</p>
+        </div>
+
+    <% end %>
+  </section>

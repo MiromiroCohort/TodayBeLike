@@ -83,19 +83,11 @@
   left: -9px;
 }
 
-.post {
-  clear: both;
-}
-
 .gravatar {
-  float: left;
-}
-
-.gravatar img {
   height: 80px;
   width: 80px;
 }
 
-.move_down {
-  padding-top: 30px;
+.move-down {
+  padding-top: 20px;
 }

@@ -1,0 +1,18 @@
+<%
+  today_posts = []
+  today_posts << User.find(session[:user_id]).posts.last
+  followed = User.find(session[:user_id]).user_id
+  followed.each do |user|
+   today_posts<< user.posts.last
+ end 
+ %>
+
+<%today_posts.each do |post| %>
+	<p> <%= post.id %>   </p>
+	<p> <%= post.title %> </p>
+	<p> <%= post.content %> </p>
+	<p> <%= post.user_id %> </p>
+<% end %>
+
+
+

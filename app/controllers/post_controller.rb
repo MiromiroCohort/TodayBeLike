@@ -9,6 +9,15 @@ end
 
 
 get '/posts' do
+ 
+  @posts = []
+  @posts = Post.all
+  
+
+ erb :posts
+end
+
+get '/posts/:id' do
   @posts = []
   @posts << User.find(session[:user_id]).posts.last
   followed = User.find(session[:user_id]).user_id
@@ -16,11 +25,6 @@ get '/posts' do
    @posts<< user.posts.last
  end
  erb :posts
-end
-
-get '/posts/:id' do
-   @this_post = Post.find_by(:id => params[:id])
-   erb :post_show
 end
 
 

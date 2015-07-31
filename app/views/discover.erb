@@ -1,14 +1,28 @@
+<div class="container">
   <section class="row">
     <% @unfollowed_users_posts.sample(5).each do |post|
-      panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+      require 'faker'
       %>
-      <div class="<%= panel_colours %>">
-        <div class="panel-heading">
-          <p><%= post.user.username %> says &ldquo;Today be like...&rdquo;</p>
+      <div class="row">
+        <div class="col-md-2">&nbsp;</div>
+        <div class="col-md-1">
+          <img src="<%= Faker::Avatar.image %>" class="gravatar" />
+            <form action="/users/<%= post.user_id %>" method= "post">
+            <input type="hidden" name="_method" value="put" />
+            <input type="submit" value="Follow">
+          </form>
+
         </div>
-        <div class="panel-body">
-          <p><%= post.content %></p>
+        <div class="col-md-7 move-down">
+          <div class="bubble joiner">
+            <p>Today be like... <%= post.content %></p>
+            <form action="/likes/<%= post.id %>" method="post">
+              <input type="submit" value="Like">
+            </form>
+          </div>
         </div>
+        <div class="col-md-2">&nbsp;</div>
       </div>
     <% end %>
   </section>
+</div>

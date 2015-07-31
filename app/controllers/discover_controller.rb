@@ -1,6 +1,6 @@
-get '/discover' do 
+get '/discover' do
   user = session[:user_id]
-  followed_users = User.find(user).followed_id
+  followed_users = User.find(user).user_id
   all_accounts = User.all
   unfollowed_users = all_accounts - followed_users
   @unfollowed_users_posts = []

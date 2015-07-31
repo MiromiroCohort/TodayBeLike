@@ -1,0 +1,33 @@
+<ul class="nav navbar-nav">
+
+  <% if @posts %>
+    <li class="active"><span class="page">Discover</span></li>
+  <% else %>
+    <li><a href="/discover">Discover</a></li>
+  <% end %>
+
+  <% if @user %>
+    <li class="active"><span class="page">Profile</span></li>
+  <% else %>
+    <li><a href="/profile">Profile</a></li>
+  <% end %>
+
+  <% if @posts %>
+    <li class="active"><span class="page">My Posts</span></li>
+  <% else %>
+    <li><a href="/posts">My Posts</a></li>
+  <% end %>
+
+  <% if @posts %>
+    <li class="active"><span class="page">I follow</span></li>
+  <% else %>
+    <li><a href="/users/<%= session[:user_id] %>/follows/">I follow</a></li>
+  <% end %>
+  <% if @posts %>
+    <li class="active"><span class="page">I followed by</span></li>
+  <% else %>
+    <li><a href="/users/<%= session[:user_id] %>/followed_by/">I follow</a></li>
+  <% end %>
+
+
+</ul>

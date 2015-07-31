@@ -16,8 +16,11 @@
       <p>Actions</p>
     </div>
   </div>
+  <% if @posts.count >0 %>
   <% @posts.each do |item| %>
+  <% if item %>
     <div class="row">
+
       <div class="col-md-1">
         <p><%= item.created_at.to_date %></p>
       </div>
@@ -41,6 +44,8 @@
         </form>
       </div>
     </div>
+    <% end %>
+    <% end %>
   <% end %>
 </div>
 

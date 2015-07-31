@@ -24,7 +24,7 @@
             <img src="<%= Faker::Avatar.image %>" />
               <form action="/likes/<%= post.user_id %>" method= "post">
               <input type="hidden" name="_method" value="put" />
-              <input type="submit" value="like">
+              <input type="submit" value="like" class="btn btn-success">
             </form>
             </div>
   		<div class="row">

@@ -7,18 +7,15 @@ get '/likes' do
   erb :likes
 end
 
+# get '/likes/:id' do
+# 	@post_id = params[:id]
+# 	erb :posts
+# end
+
 get '/likes/:id' do
 	@post_id = params[:id]
-	erb :posts
-end
-
-put '/likes/:id' do
-	@post_id = params[:id]
 	@user_id = session[:user_id]
-	new_like = Like.new(user_id: @user_id, post_id: @post_id)
-	if new_like.valid?
-		new_like.save
-	end
+	new_like = Like.create(user_id: @user_id, post_id: @post_id)
 	posting_user = User.find(Post.find(@post_id).user_id)
 	redirect "/profile/#{posting_user.id}"
 end

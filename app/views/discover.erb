@@ -9,10 +9,10 @@
           <img src="<%= Faker::Avatar.image %>" />
               <form action="/users/<%= post.user_id %>" method= "post">
               <input type="hidden" name="_method" value="put" />
-              <input type="submit" value="Follow">
+              <input type="submit" value="Follow" class="btn btn-success">
             </form>
             <form action="/likes/<%= post.id %>" method= "put">
-              <input type="submit" value="Like This Post">
+              <input type="submit" value="Like This Post" class="btn btn-primary">
             </form>
 
 

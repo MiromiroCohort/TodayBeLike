@@ -107,3 +107,22 @@
   text-decoration: none;
   color: #fff;
 }
+
+
+
+#logo {
+
+   margin: -20% 0 0 -6%;
+   border-radius: 8%;
+ }
+
+ #logo_small {
+   margin-top: -4px;
+   display: inline-block;
+   border-radius: 8%;
+   width: 60px;
+ }
+
+ #slogan {
+   font: 2em;
+ }

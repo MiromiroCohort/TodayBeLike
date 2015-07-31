@@ -7,12 +7,42 @@
  end 
  %>
 
-<%today_posts.each do |post| %>
-	<p> <%= post.id %>   </p>
-	<p> <%= post.title %> </p>
-	<p> <%= post.content %> </p>
-	<p> <%= post.user_id %> </p>
-<% end %>
+
+<div class="container">
+	<section class="row">
+		<%today_posts.each do |post| 
+
+		 panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+      		require 'faker'
+			%>
+
+<br />
+<br />
+	<div class="row">
+        <div class="col-md-2">&nbsp;</div>
+        <div class="col-md-1 gravatar">
+          <img src="<%= Faker::Avatar.image %>" />
+            <form action="/users/<%= post.user_id %>" method= "post">
+            <input type="hidden" name="_method" value="put" />
+            <input type="submit" value="Follow">
+          </form>
+          </div>
+		<div class="row">
+	      <div class="col-md-7 move-down">
+          	<div class="bubble joiner">
+	<!-- 	 	<p> <%= post.id %>   </p>
+			<p> <%= post.title %> </p>
+	 -->		<p> <%= post.content %> </p>
+			<!-- <p> <%= post.user_id %> </p> -->
+		    </div>
+		  </div>
+	    </div>
+  	<% end %>
+  </section>
+</div>
+
+
+
 
 
 

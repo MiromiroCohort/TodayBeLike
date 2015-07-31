@@ -9,7 +9,11 @@ end
 
 
 get '/posts' do
-  @posts = User.find(session[:user_id])
+ 
+  @posts = []
+  @posts = Post.all
+  
+
  erb :posts
 end
 

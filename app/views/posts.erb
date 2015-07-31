@@ -1,24 +1,36 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-1">
+      <p>First posted</p>
+    </div>
+    <div class="col-md-1">
+      <p>Last modified</p>
+    </div>
     <div class="col-md-2">
       <p>Title</p>
     </div>
     <div class="col-md-6">
       <p>Content</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
       <p>Actions</p>
     </div>
   </div>
   <% @posts.each do |item| %>
     <div class="row">
+      <div class="col-md-1">
+        <p><%= item.created_at.to_date %></p>
+      </div>
+      <div class="col-md-1">
+        <p><%= item.updated_at.to_date %></p>
+      </div>
       <div class="col-md-2">
         <a href="/posts/<%= item.id %>"><%= item.title %></a>
       </div>
       <div class="col-md-6">
         <p><%= item.content %></p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <a href="/posts/<%= item.id %>/edit" style="float: left;">
           <button type="button" class="btn btn-warning">Edit</button>
         </a><p style="float: left;">&nbsp;</p>
@@ -28,6 +40,6 @@
           <input type="submit" class="btn btn-danger" value="DEL">
         </form>
       </div>
-    </div><br />
+    </div>
   <% end %>
 </div>

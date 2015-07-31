@@ -4,39 +4,40 @@
   followed = User.find(session[:user_id]).user_id
   followed.each do |user|
    today_posts<< user.posts.last
- end 
+ end
  %>
 
 
 <div class="container">
 	<section class="row">
-		<%today_posts.each do |post| 
+		<% today_posts.each do |post|
+      if post
+  		 panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+        		require 'faker'
+  			%>
 
-		 panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
-      		require 'faker'
-			%>
-
-<br />
-<br />
-	<div class="row">
-        <div class="col-md-2">&nbsp;</div>
-        <div class="col-md-1 gravatar">
-          <img src="<%= Faker::Avatar.image %>" />
-            <form action="/users/<%= post.user_id %>" method= "post">
-            <input type="hidden" name="_method" value="put" />
-            <input type="submit" value="Follow">
-          </form>
-          </div>
-		<div class="row">
-	      <div class="col-md-7 move-down">
-          	<div class="bubble joiner">
-	<!-- 	 	<p> <%= post.id %>   </p>
-			<p> <%= post.title %> </p>
-	 -->		<p> <%= post.content %> </p>
-			<!-- <p> <%= post.user_id %> </p> -->
-		    </div>
-		  </div>
-	    </div>
+  <br />
+  <br />
+  	<div class="row">
+          <div class="col-md-2">&nbsp;</div>
+          <div class="col-md-1 gravatar">
+            <img src="<%= Faker::Avatar.image %>" />
+              <form action="/likes/<%= post.user_id %>" method= "post">
+              <input type="hidden" name="_method" value="put" />
+              <input type="submit" value="like">
+            </form>
+            </div>
+  		<div class="row">
+  	      <div class="col-md-7 move-down">
+            	<div class="bubble joiner">
+  	<!-- 	 	<p> <%= post.id %>   </p>
+  			<p> <%= post.title %> </p>
+  	 -->		<p> <%= post.content %> </p>
+  			<!-- <p> <%= post.user_id %> </p> -->
+  		    </div>
+  		  </div>
+  	    </div>
+        <%end%>
   	<% end %>
   </section>
 </div>

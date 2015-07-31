@@ -1,20 +1,26 @@
-
+<div class="container">
   <section class="row">
-     <% User.find_by_id(@follower_id).user_id.each do |leader|
-      panel_colours = ["panel-blue", "panel-yellow", "panel-red", "panel-green", "panel-purple"].sample
+    <% User.find_by_id(@follower_id).user_id.each do |leader|
+      require 'faker'
       %>
-      <div class="<%= panel_colours %>">
-        <div class="panel-heading">
-
-          <p><%= leader.username %> says &ldquo;Today be like...&rdquo;</p>
+      <div class="row">
+        <div class="col-md-2">&nbsp;</div>
+        <div class="col-md-1 gravatar">
+          <img src="<%= Faker::Avatar.image %>" />
+          <p> <%= leader.username %></p>
+              <% if @follower_id == session[:user_id] %>
+               <form action="/users/<%= leader.id %>" method= "post">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="Unfollow">
+              </form>
+            <% end %>
         </div>
-        <% if @follower_id == session[:user_id] %>
-         <div>
-           <form action="/users/<%= leader.id %>" method= "post">
-            <input type="hidden" name="_method" value="delete" />
-            <input type="submit" value="Unfollow">
-          </form>
-         </div>
-        <% end %>
-     <% end %>
+        <div class="col-md-2">&nbsp;</div>
+      </div>
+    <% end %>
   </section>
+</div>
+
+
+
+

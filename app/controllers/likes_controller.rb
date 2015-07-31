@@ -19,7 +19,8 @@ post '/likes/:id' do
 	if new_like.valid?
 		new_like.save
 	end
-	erb :index
+	posting_user = User.find(Post.find(@post_id).user_id)
+	redirect "/profile/#{posting_user.id}"
 end
 
 
@@ -28,6 +29,6 @@ delete '/likes/:id' do
 	@user_id = session[:user_id]
 	delete_post = Like.where(user_id: @user_id, post_id: @post_id)[0]
 	delete_post.destroy
-	erb :index
+	erb :discover
   # erb :likes
 end

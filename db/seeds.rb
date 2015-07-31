@@ -2,18 +2,18 @@ require 'faker'
 require 'bcrypt'
 
 
-10.times do 
+50.times do 
 	User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, 
 		digest: BCrypt::Password.create(Faker::Lorem.word))
 end
 
-20.times do
-	Post.create(title: Faker::Lorem.word, content: Faker::Lorem.words(rand(8..20)).join(" "), 
-				user_id: rand(1..10))
+200.times do
+	Post.create(title: Faker::Lorem.word, content: Faker::Hacker.say_something_smart, 
+				user_id: rand(1..50))
 end
 
-5.times do
-	Like.create(user_id: rand(1..10), post_id: rand(1..20))
+100.times do
+	Like.create(user_id: rand(1..50), post_id: rand(1..200))
 end
 
 # relationships = []
@@ -31,6 +31,6 @@ end
 # 	Follower.create(user_id: pair[0], followed_id: pair[1])
 # end
 
-5.times do |i|
+25.times do |i|
 	User.find(i+1).followed_id << User.find(5+i)
 end
